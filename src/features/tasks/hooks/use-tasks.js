@@ -2,7 +2,16 @@ import { useMemo } from "react";
 import { useTasksContext } from "./use-tasks-context";
 
 export function useTasks() {
-  const { groups, tasks, toggleTaskStatus, addGroup, addTask } = useTasksContext();
+  const {
+    groups,
+    tasks,
+    toggleTaskStatus,
+    addTask,
+    editTask,
+    deleteTask,
+    addGroup,
+    deleteGroup,
+  } = useTasksContext();
 
   const priorityTasks = useMemo(
     () => tasks.filter((task) => task.priority),
@@ -54,7 +63,10 @@ export function useTasks() {
     pendingTasks,
     stats,
     toggleTaskStatus,
-    addGroup,
     addTask,
+    editTask,
+    deleteTask,
+    addGroup,
+    deleteGroup,
   };
 }
