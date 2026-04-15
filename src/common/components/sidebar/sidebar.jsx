@@ -12,25 +12,25 @@ const links = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-full border-b border-white/10 bg-slate-950/70 backdrop-blur-xl lg:min-h-screen lg:w-72 lg:border-r lg:border-b-0">
-      <div className="flex h-full flex-col px-4 py-6 lg:px-5 lg:py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-semibold tracking-tight text-white">
+    <aside className="w-full lg:w-[300px] lg:shrink-0">
+      <div className="flex h-full min-h-full flex-col rounded-[28px] border border-white/10 bg-slate-950/55 p-5 shadow-2xl backdrop-blur-2xl">
+        <div className="mb-8 px-2 pt-1">
+          <h1 className="text-5xl font-semibold tracking-tight text-white">
             iDash
           </h1>
         </div>
 
-        <nav className="flex gap-3 overflow-x-auto lg:flex-col lg:overflow-visible">
+        <nav className="flex gap-3 overflow-x-auto lg:flex-1 lg:flex-col lg:overflow-visible">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === "/"}
               className={({ isActive }) =>
-                `min-w-fit rounded-2xl border px-5 py-4 text-sm transition lg:w-full ${
+                `min-w-fit rounded-2xl border px-5 py-4 text-sm font-medium transition lg:w-full ${
                   isActive
                     ? "border-white/20 bg-white/15 text-white shadow-lg"
-                    : "border-white/10 bg-white/5 text-slate-200 hover:bg-white/10"
+                    : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10"
                 }`
               }
             >

@@ -1,22 +1,22 @@
 export function TaskItem({ task, onToggle }) {
+  const isCompleted = task.status === "completed";
+
   return (
-    <div className="flex items-center gap-3 py-1 hover:opacity-80 transition">
+    <label className="flex cursor-pointer items-start gap-4">
       <input
         type="checkbox"
-        checked={task.status === "completed"}
+        checked={isCompleted}
         onChange={() => onToggle(task.id)}
-        className="h-4 w-4 accent-purple-400"
+        className="mt-1 h-5 w-5 rounded-sm border border-white/60 bg-transparent accent-white"
       />
 
-      <p
-        className={`text-sm ${
-          task.status === "completed"
-            ? "line-through text-white-40"
-            : "text-white/90"
+      <span
+        className={`text-[1.15rem] leading-8 ${
+          isCompleted ? "text-white/40 line-through" : "text-white/85"
         }`}
       >
         {task.title}
-      </p>
-    </div>
+      </span>
+    </label>
   );
 }

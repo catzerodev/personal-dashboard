@@ -1,40 +1,51 @@
 @import "tailwindcss";
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
   margin: 0;
-  padding: 0;
+  height: 100%;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 2px;
+  border-radius: 999px;
 }
 
-/* Checkbox custom */
+/* Checkbox */
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  border-radius: 3px;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
   background: transparent;
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.15s ease;
 }
+
 input[type="checkbox"]:checked {
   background: #6366f1;
   border-color: #6366f1;
@@ -43,6 +54,7 @@ input[type="checkbox"]:checked {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 input[type="checkbox"]:hover:not(:checked) {
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.7);
 }
