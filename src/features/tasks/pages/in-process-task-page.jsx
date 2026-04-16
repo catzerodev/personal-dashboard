@@ -9,7 +9,7 @@ export function TaskInProcessPage() {
       <div className="flex items-center gap-3 px-1 text-sm font-medium text-white/60">
         <span>Home</span>
         <span>/</span>
-        <span>Tasks in Progress</span>
+        <span>Task in process</span>
         <span>/</span>
         <span>17 Abril 2026</span>
       </div>
@@ -17,7 +17,7 @@ export function TaskInProcessPage() {
       <div className="mt-5 flex-1 overflow-hidden rounded-[34px] border border-white/10 bg-slate-950/20 p-10 shadow-2xl backdrop-blur-xl">
         <div className="h-full overflow-y-auto pr-2">
           <FilteredTaskList
-            title="Tasks in Progress"
+            title="Tasks in Process"
             tasks={inProcessTasks}
             onToggle={toggleTaskStatus}
             onEdit={editTask}

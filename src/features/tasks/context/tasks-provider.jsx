@@ -20,31 +20,29 @@ export function TasksProvider({ children }) {
     );
   };
 
-  const addTask = (groupId, title) => {
+  const addTask = (groupId, title, status = "pending", priority = false) => {
     if (!title || !title.trim()) return;
 
     const newTask = {
       id: Date.now(),
       title: title.trim(),
       groupId,
-      status: "pending",
-      priority: false,
+      status,
+      priority,
     };
 
     setTasks((currentTasks) => [...currentTasks, newTask]);
   };
 
-  const editTask = (taskId, newTitle) => {
-    if (!newTitle || !newTitle.trim()) return;
-
-    setTasks((currentTasks) =>
-      currentTasks.map((task) =>
-        task.id === taskId
-          ? { ...task, title: newTitle.trim() }
-          : task
-      )
-    );
-  };
+  const editTask = (taskId, updatedFields) => {
+  setTasks((currentTasks) =>
+    currentTasks.map((task) =>
+      task.id === taskId
+        ? { ...task, ...updatedFields }
+        : task
+    )
+  );
+};
 
   const deleteTask = (taskId) => {
     setTasks((currentTasks) =>
@@ -53,7 +51,7 @@ export function TasksProvider({ children }) {
   };
 
   const addGroup = (title) => {
-    if (!title || !title.trim()) return;
+    if (!title || !title.trim()) return null;
 
     const newGroup = {
       id: crypto.randomUUID(),
@@ -61,6 +59,7 @@ export function TasksProvider({ children }) {
     };
 
     setGroups((currentGroups) => [...currentGroups, newGroup]);
+    return newGroup.id;
   };
 
   const deleteGroup = (groupId) => {
