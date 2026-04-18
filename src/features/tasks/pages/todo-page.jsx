@@ -65,7 +65,7 @@ export function TodoPage() {
         </button>
       </div>
 
-      {showInput && (
+      {showInput && (   
         <div className="mt-4 flex flex-wrap gap-3">
           {/* INPUT */}
           <input
