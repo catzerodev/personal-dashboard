@@ -24,7 +24,7 @@ const links = [
 export default function Sidebar() {
   return (
     <aside className="w-full lg:w-[300px] lg:shrink-0">
-      <div className="flex h-full flex-col rounded-[28px] border border-white/10 bg-slate-950/55 p-5 shadow-2xl backdrop-blur-2xl">
+      <div className="flex h-full min-h-full flex-col rounded-[28px] border border-white/10 bg-slate-950/45 p-5 shadow-2xl backdrop-blur-2xl">
         <div className="h-26 flex items-center px-8">
           <div className="flex items-center gap-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cyan-400/20 shadow-[0_0_15px_rgba(34,211,238,0.4)]">
@@ -37,7 +37,7 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <nav className="mt-8 flex flex-col gap-4 lg:mt-10">
+        <nav className="mt-8 flex flex-1 flex-col gap-4 lg:mt-10">
           {links.map((link) => {
             const Icon = link.icon;
 
