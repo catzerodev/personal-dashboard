@@ -17,6 +17,10 @@ export async function getPokemon(name) {
     weight: pokemonData.weight,
     baseExperience: pokemonData.base_experience,
     abilities: pokemonData.abilities.map((ability) => ability.ability.name),
+    stats: pokemonData.stats.map((stat) => ({
+      name: stat.stat.name,
+      value: stat.base_stat,
+    })),
     types: pokemonData.types.map((type) => type.type.name),
     gender:
       speciesData.gender_rate === -1

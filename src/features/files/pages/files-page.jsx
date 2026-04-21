@@ -1,9 +1,12 @@
+import { useState } from "react";
 import PageBreadcrumb from "../../../common/components/page-breadcrumb";
 import { PokemonItem } from "../components/pokemon-item";
+import { PokemonModal } from "../components/pokemon-modal";
 import { useGetPokemons } from "../hooks/use-get-pokemons";
 
 export function FilesPage() {
   const { pokemons, loading, error } = useGetPokemons();
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   return (
     <section className="flex h-full flex-col overflow-hidden">
@@ -18,22 +21,35 @@ export function FilesPage() {
           </h2>
 
           {loading && (
-            <p className="mt-6 text-white/60">Loading pokemons...</p>
+            <div className="mt-8">
+              <p className="text-lg text-white/60">Loading pokemons...</p>
+            </div>
           )}
 
           {error && (
-            <p className="mt-6 text-red-400">Error: {error}</p>
+            <div className="mt-8">
+              <p className="text-lg text-red-400">Error: {error}</p>
+            </div>
           )}
 
           {!loading && !error && (
             <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
               {pokemons.map((pokemon) => (
-                <PokemonItem key={pokemon.id} pokemon={pokemon} />
+                <PokemonItem
+                  key={pokemon.id}
+                  pokemon={pokemon}
+                  onClick={setSelectedPokemon}
+                />
               ))}
             </div>
           )}
         </div>
       </div>
+
+      <PokemonModal
+        pokemon={selectedPokemon}
+        onClose={() => setSelectedPokemon(null)}
+      />
     </section>
   );
 }

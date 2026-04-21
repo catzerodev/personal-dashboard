@@ -10,6 +10,17 @@ import {
   Rocket,
 } from "lucide-react";
 import UserSection from "../user-section";
+import pokeball from "../../../assets/pokeball.svg";
+
+function PokeballIcon({ size = 16 }) {
+  return (
+    <img
+      src={pokeball}
+      alt="pokeball"
+      style={{ width: size, height: size }}
+    />
+  );
+}
 
 const links = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -18,7 +29,7 @@ const links = [
   { to: "/task-in-process", label: "Tasks in Progress", icon: Clock3 },
   { to: "/completed-task", label: "Completed Tasks", icon: CheckCheck },
   { to: "/calendar", label: "Calendar", icon: CalendarDays },
-  { to: "/files", label: "My Pokemons", icon: FolderOpen },
+  { to: "/files", label: "My Pokemons", icon: PokeballIcon },
 ];
 
 export default function Sidebar() {
