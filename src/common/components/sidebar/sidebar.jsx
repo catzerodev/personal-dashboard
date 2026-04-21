@@ -18,7 +18,7 @@ const links = [
   { to: "/task-in-process", label: "Tasks in Progress", icon: Clock3 },
   { to: "/completed-task", label: "Completed Tasks", icon: CheckCheck },
   { to: "/calendar", label: "Calendar", icon: CalendarDays },
-  { to: "/files", label: "Files", icon: FolderOpen },
+  { to: "/files", label: "My Pokemons", icon: FolderOpen },
 ];
 
 export default function Sidebar() {
