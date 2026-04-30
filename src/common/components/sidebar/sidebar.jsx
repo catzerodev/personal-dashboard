@@ -28,7 +28,7 @@ const links = [
   { to: "/priority-task", label: "Priority Tasks", icon: Flag },
   { to: "/task-in-process", label: "Tasks in Progress", icon: Clock3 },
   { to: "/completed-task", label: "Completed Tasks", icon: CheckCheck },
-  { to: "/calendar", label: "Calendar", icon: CalendarDays },
+  { to: "/calendar", label: "Focus Tracker", icon: CalendarDays },
   { to: "/files", label: "My Pokemons", icon: PokeballIcon },
 ];
 

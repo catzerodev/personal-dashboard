@@ -1,63 +1,62 @@
-import { Ruler, Dumbbell } from "lucide-react";
-import { DisplayType } from "../utils/display-type";
 import pokeball from "../../../assets/pokeball.png";
+import { Ruler, Weight } from "lucide-react";
 
 export function PokemonItem({ pokemon, onClick }) {
   return (
     <div
       onClick={() => onClick(pokemon)}
-      className="group relative min-h-[500px] cursor-pointer overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,#07142c_0%,#0b1c36_42%,#4fa726_100%)] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+      className="group relative flex h-[390px] cursor-pointer flex-col justify-between overflow-hidden rounded-[26px] border border-white/10 bg-slate-900/60 p-5 transition hover:scale-[1.02]"
     >
-      
+      {/* Pokeball fondo */}
       <img
         src={pokeball}
-        alt="pokeball background"
-        className="pointer-events-none absolute left-[-55px] top-[205px] w-[220px] opacity-10"
+        className="absolute bottom-[-40px] left-[-40px] w-[180px] opacity-10"
       />
 
-      <div className="pointer-events-none absolute bottom-[-30px] left-1/2 h-44 w-44 -translate-x-1/2 rounded-full bg-green-300/10 blur-3xl" />
-
-      <div className="relative z-10 flex h-full flex-col">
+      {/* Imagen */}
+      <div className="flex justify-center">
         <img
           src={pokemon.image}
           alt={pokemon.name}
-          className="mx-auto h-48 w-48 object-contain saturate-150 contrast-110 brightness-105 drop-shadow-[0_10px_20px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
+          className="mx-auto h-56 w-56 object-contain saturate-200 contrast-125 brightness-110 drop-shadow-[0_16px_28px_rgba(0,0,0,0.45)] transition-transform duration-300 group-hover:scale-110"
         />
+      </div>
 
-        <h3 className="mt-2 text-center text-[2.15rem] font-semibold capitalize tracking-[-0.02em] text-white">
-          • {pokemon.name} •
-        </h3>
+      {/* Nombre */}
+      <h3 className="text-center text-lg font-semibold text-white capitalize">
+        • {pokemon.name} •
+      </h3>
 
-        <div className="mt-4 flex justify-center gap-3">
-          {(pokemon.types || []).map((type) => (
-            <DisplayType key={type} type={type} />
-          ))}
+      {/* Types */}
+      <div className="flex justify-center gap-2">
+        {pokemon.types.map((type) => (
+          <span
+            key={type}
+            className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80"
+          >
+            {type}
+          </span>
+        ))}
+      </div>
+
+      {/* Stats */}
+      <div className="mt-2 flex justify-between text-sm text-white/80">
+        <div className="flex flex-col items-center">
+          <span className="text-base font-semibold">
+            {pokemon.height / 10} M
+          </span>
+          <span className="flex items-center gap-1 text-xs">
+            <Ruler size={12} /> Altura
+          </span>
         </div>
 
-        <div className="mt-auto pt-10">
-          <div className="grid grid-cols-2 gap-4 text-center text-white">
-            <div>
-              <p className="text-[2rem] font-bold">
-                {(pokemon.height / 10).toFixed(1)} M
-              </p>
-
-              <div className="mt-1 flex items-center justify-center gap-1 text-[1.1rem] text-white/90">
-                <Ruler size={18} />
-                <span>Altura</span>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-[2rem] font-bold">
-                {(pokemon.weight / 10).toFixed(1)} KG
-              </p>
-
-              <div className="mt-1 flex items-center justify-center gap-1 text-[1.1rem] text-white/90">
-                <Dumbbell size={18} />
-                <span>Peso</span>
-              </div>
-            </div>
-          </div>
+        <div className="flex flex-col items-center">
+          <span className="text-base font-semibold">
+            {pokemon.weight / 10} KG
+          </span>
+          <span className="flex items-center gap-1 text-xs">
+            <Weight size={12} /> Peso
+          </span>
         </div>
       </div>
     </div>

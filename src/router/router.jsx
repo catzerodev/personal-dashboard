@@ -10,20 +10,32 @@ import { Calendar } from "../app/calendar/calendar";
 import { FilesPage } from "../features/files/pages/files-page";
 import { PokemonDetailPage } from "../features/files/pages/pokemon-detail-page";
 
+import { Login } from "../app/login/login";
+import { ProtectedRoute } from "../features/auth/components/protected-route";
+
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    Component: DashboardLayout,
+    path: "/login",
+    Component: Login,
+  },
+  {
+    element: <ProtectedRoute />,
     children: [
-      { index: true, Component: Dashboard },
-      { path: "todo", Component: Todo },
-      { path: "priority-task", Component: PriorityTask },
-      { path: "task-in-process", Component: TaskInProcess },
-      { path: "completed-task", Component: CompletedTask },
-      { path: "calendar", Component: Calendar },
-      { path: "files", Component: FilesPage },
-      { path: "files/:name", Component: PokemonDetailPage },
+      {
+        path: "/",
+        Component: DashboardLayout,
+        children: [
+          { index: true, Component: Dashboard },
+          { path: "todo", Component: Todo },
+          { path: "priority-task", Component: PriorityTask },
+          { path: "task-in-process", Component: TaskInProcess },
+          { path: "completed-task", Component: CompletedTask },
+          { path: "calendar", Component: Calendar },
+          { path: "files", Component: FilesPage },
+          { path: "files/:name", Component: PokemonDetailPage },
+        ],
+      },
     ],
   },
 ]);
