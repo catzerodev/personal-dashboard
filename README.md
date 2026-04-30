@@ -1,16 +1,40 @@
-# React + Vite
+# iDash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+iDash is a personal productivity dashboard built with React. It includes task management, authentication, Pokemon API integration, a focus tracker and a custom glassmorphism UI.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Authentication with FakeStore API
+- Protected routes
+- Global auth state with Zustand
+- User profile section with logout
+- Task CRUD
+- Dynamic task categories
+- Task filters by status and priority
+- Pokemon API integration with Axios
+- Pokemon search and pagination
+- Pokemon cards and detail modal
+- Loading skeletons
+- Focus Tracker with Zustand counter
+- Responsive glassmorphism layout
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router
+- Tailwind CSS
+- Zustand
+- Axios
+- Lucide React
+- FakeStore API
+- PokeAPI
 
-## Expanding the ESLint configuration
+## Test Login
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Username: mor_2314  
+Password: 83r5^_
+
+## Author
+
+~ CatzeroDev ᗜ⩊ᗜ
